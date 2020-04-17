@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "node ./scripts/watch-tsc.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./scripts/test.js"
   },
   "workspaces": [
     "app/*",
@@ -19,6 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "chalk": "^3.0.0",
+    "jest": "^25.3.0",
     "shelljs": "^0.8.3"
   }
 }
