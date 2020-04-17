@@ -9,14 +9,26 @@ export function webpack(config: Configuration) {
       rules: [
         ...config.module.rules,
         {
-          test: /\.html$/,
+          test: /\.riot/,
           use: [
             {
-              loader: require.resolve('html-loader'),
+              loader: require.resolve('@riotjs/webpack-loader'),
+              options: {
+                hot: true, // set it to true if you are using hmr
+                // add here all the other @riotjs/compiler options riot.js.org/compiler
+                // template: 'pug' for example
+              },
             },
           ],
         },
       ],
+    },
+    resolve: {
+      ...config.resolve,
+      alias: {
+        ...config.resolve.alias,
+        //'@riotjs/compiler': '@riotjs/compiler/dist/index.esm.js',
+      },
     },
   };
 }
