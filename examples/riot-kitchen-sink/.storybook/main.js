@@ -1,16 +1,27 @@
+const path = require('path');
+
 module.exports = {
-  stories: [`../stories/*.stories.*`],
+  stories: ['../src/stories/**/*.stories.js'],
   addons: [
-    "@storybook/addon-docs",
-    "@storybook/addon-a11y",
-    "@storybook/addon-actions",
-    "@storybook/addon-backgrounds",
-    "@storybook/addon-events",
-    "@storybook/addon-jest",
-    "@storybook/addon-knobs",
-    "@storybook/addon-links",
-    "@storybook/addon-options",
-    "@storybook/addon-storysource",
-    "@storybook/addon-viewport"
-  ]
+    '@storybook/addon-storysource',
+    '@storybook/addon-actions',
+    '@storybook/addon-links',
+    '@storybook/addon-knobs',
+    '@storybook/addon-viewport',
+    '@storybook/addon-backgrounds',
+    '@storybook/addon-a11y',
+  ],
+  webpackFinal: async (config) => {
+    config.module.rules.push({
+      test: [/\.stories\.js$/, /index\.js$/],
+      loaders: [require.resolve('@storybook/source-loader')],
+      include: [path.resolve(__dirname, '../src')],
+      enforce: 'pre',
+    });
+    config.module.rules.push({
+      test: /\.txt$/,
+      use: 'raw-loader',
+    });
+    return config;
+  },
 };

@@ -1183,6 +1183,13 @@
     "@riotjs/util" "^1.3.1"
     domdiff "^2.2.2"
 
+"@riotjs/hot-reload@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@riotjs/hot-reload/-/hot-reload-4.0.1.tgz#e249eb2523b706eaacf8cc39d350ebcb2b34f783"
+  integrity sha512-7kzPKd+L/wBXS+4+myxAx0ZLTUks4Piw+aCZyGvMVE3PRniJQdJ0u8qRFUijtVJ6mgbL7DSGLx6C+1ZiMu7XaA==
+  dependencies:
+    bianco.query "^1.0.0"
+
 "@riotjs/parser@^4.2.1":
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/@riotjs/parser/-/parser-4.2.1.tgz#aac8efe3495890021befef7784711470113f5e1e"
