@@ -1,3 +1,4 @@
+import { register, mount } from 'riot';
 import { document, Node } from 'global';
 import dedent from 'ts-dedent';
 import { RenderMainArgs } from './types';
@@ -12,9 +13,16 @@ export default function renderMain({
   showError,
   forceRender,
 }: RenderMainArgs) {
-  const element = storyFn();
+
+  const { component, props } = storyFn();
+  console.log(component);
+
+
 
   showMain();
+  register('foo', component);
+  mount(rootElement, props, 'foo');
+  /**
   if (typeof element === 'string') {
     rootElement.innerHTML = element;
   } else if (element instanceof Node) {
@@ -33,5 +41,5 @@ export default function renderMain({
         Use "() => <your snippet or node>" or when defining the story.
       `,
     });
-  }
+  }**/
 }

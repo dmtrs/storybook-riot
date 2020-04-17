@@ -1,9 +1,16 @@
-<my-button>
-    <button class={this.opts.rounded ? 'rounded button' : 'button'} style="color: {this.color}; border-color: {this.color}" onclick={ handleClick } ondblclick={ handleDblClick } class="rounded">{opts.content}<yield/>!</button>
+<MyButton>
+  <button
+    class={this.opts.rounded ? 'rounded button' : 'button'}
+    style="color: {this.color}; border-color: {this.color}"
+    onclick={ handleClick }
+    ondblclick={ handleDblClick }
+    class="rounded">{opts.content}</button>
+
     <script>
+export default {};/**
         this.handleClick = this.opts.handleClick || function(){}
         this.handleDblClick = this.opts.handleDblClick || function(){}
-        this.color = this.opts.color || '#42b983'
+        this.color = this.opts.color || '#42b983'**/
     </script>
 
     <style>
@@ -19,4 +26,4 @@
         }
 
     </style>
-</my-button>
+</MyButton>

@@ -4,11 +4,11 @@ import { ClientStoryApi, Loadable } from '@storybook/addons';
 
 import './globals';
 import render from './render';
-import { StoryFnHtmlReturnType, IStorybookSection } from './types';
+import { StoryFnRiotReturnType, IStorybookSection } from './types';
 
 const framework = 'riot';
 
-interface ClientApi extends ClientStoryApi<StoryFnHtmlReturnType> {
+interface ClientApi extends ClientStoryApi<StoryFnRiotReturnType> {
   setAddon(addon: any): void;
   configure(loader: Loadable, module: NodeModule): void;
   getStorybook(): IStorybookSection[];

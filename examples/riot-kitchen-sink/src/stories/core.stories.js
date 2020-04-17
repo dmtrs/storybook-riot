@@ -1,12 +1,9 @@
-import { tag, mount, addParameters } from '@storybook/riot';
+///import { tag, mount, addParameters } from '@storybook/riot';
+import { component } from 'riot';
+import Parameters from './Parameters.riot';
 
-const globalParameter = 'globalParameter';
 const chapterParameter = 'chapterParameter';
 const storyParameter = 'storyParameter';
-
-tag('parameters', '<div>Parameters are {JSON.stringify (this.opts)}</div>', '', '', () => {});
-
-addParameters({ globalParameter });
 
 export default {
   title: 'Core/Parameters',
@@ -15,8 +12,10 @@ export default {
   },
 };
 
-export const PassedToStory = ({ parameters: { fileName, ...parameters } }) =>
-  mount('parameters', { ...parameters, storyParameter });
+export const PassedToStory = ({ parameters: { fileName, ...parameters } }) => ({
+  component: Parameters,
+  props: { ...parameters, storyParameter }
+});
 
 PassedToStory.story = {
   name: 'passed to story',

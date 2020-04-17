@@ -1,0 +1,13 @@
+<Parameters>
+  <pre><code>{ JSON.stringify(state.parameters) }</code></pre>
+  <script>
+    export default {
+      state: {
+        parameters: {}
+      },
+      onBeforeMount(props, state) {
+        state.parameters = props.parameters;
+      }
+    };
+  </script>
+</Parameters>

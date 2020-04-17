@@ -1,6 +1,9 @@
 import { StoryFn } from '@storybook/addons';
 
-export type StoryFnHtmlReturnType = string | Node;
+export type StoryFnRiotReturnType = {
+  component: any;
+  props: any;
+}
 
 export interface IStorybookStory {
   name: string;
@@ -18,7 +21,7 @@ export interface ShowErrorArgs {
 }
 
 export interface RenderMainArgs {
-  storyFn: () => StoryFn<StoryFnHtmlReturnType>;
+  storyFn: StoryFn<StoryFnRiotReturnType>;
   selectedKind: string;
   selectedStory: string;
   showMain: () => void;
